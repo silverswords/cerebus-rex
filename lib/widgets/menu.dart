@@ -16,7 +16,7 @@ class _SideBarMenuState extends State<SideBarMenu>
     with SingleTickerProviderStateMixin {
   double maxWidth = 250;
   double minWidgth = 70;
-  
+
   late AnimationController _animationController;
   late Animation<double> _animation;
 

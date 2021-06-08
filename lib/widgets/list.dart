@@ -1,9 +1,7 @@
-import 'dart:io';
-
 import 'package:cerebus_rex/model/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:cerebus_rex/config/theme.dart';
-import 'package:cerebus_rex/model/tasks.dart';
+import 'package:cerebus_rex/pages/taskDetail.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -19,9 +17,9 @@ class ListWidget extends StatelessWidget {
     final _media = MediaQuery.of(context).size;
     double _width = _media.width - 300;
     bool _collapsed = context.watch<MenuModel>().collapsed;
-    // if (_collapsed) {
-    //   _width = _media.width - 200;
-    // }
+    if (_collapsed) {
+      _width = _media.width - 120;
+    }
     return Material(
       elevation: 10,
       shadowColor: Colors.grey,
@@ -103,11 +101,23 @@ class ListWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               textBaseline: TextBaseline.alphabetic,
                               children: <Widget>[
-                                Container(
-                                  width: _width / 5,
-                                  child: Text(
-                                    items[index].name,
-                                    textAlign: TextAlign.justify,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => TaskDetailPage(items[index]),
+                                        // settings:
+                                        //     RouteSettings(name: TaskDetailPage.name),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    width: _width / 5,
+                                    child: Text(
+                                      items[index].name,
+                                      textAlign: TextAlign.justify,
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -158,12 +168,12 @@ class ListWidget extends StatelessWidget {
                                 ),
                                 Container(
                                   width: _width / 5,
-                                  child: Text(DateFormat('kk:mm:ss EEE d MMM')
+                                  child: Text(DateFormat('kk:mm:ss d MMM yyyy')
                                       .format(items[index].publishTime)),
                                 ),
                                 Container(
                                   width: _width / 5,
-                                  child: Text(DateFormat('kk:mm:ss EEE d MMM')
+                                  child: Text(DateFormat('kk:mm:ss d MMM yyyy')
                                       .format(items[index].runningTime)),
                                 ),
                               ],

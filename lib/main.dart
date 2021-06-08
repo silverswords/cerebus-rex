@@ -66,7 +66,7 @@ class MyHomePage extends StatelessWidget {
   //     });
   //   }
   // }
-  
+
   Widget getPages(int index) {
     switch (index) {
       case 0:
