@@ -1,7 +1,7 @@
 import 'package:cerebus_rex/config/theme.dart';
+import 'package:cerebus_rex/model/menu.dart';
 import 'package:cerebus_rex/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
-import 'package:cerebus_rex/model/menu.dart';
 import 'package:provider/provider.dart';
 
 class SideBarMenu extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SideBarMenuState extends State<SideBarMenu>
     with SingleTickerProviderStateMixin {
   double maxWidth = 250;
   double minWidgth = 70;
-  
+
   late AnimationController _animationController;
   late Animation<double> _animation;
 

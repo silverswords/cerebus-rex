@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zefyrka/zefyrka.dart';
 
-import 'setting.dart';
+import 'settings.dart';
 
 typedef DemoContentBuilder = Widget Function(
     BuildContext context, ZefyrController controller);
@@ -44,13 +44,12 @@ class _DemoScaffoldState extends State<DemoScaffold> {
     super.didChangeDependencies();
     if (_controller == null && !_loading) {
       _loading = true;
-      final settings = Settings.of(context);
-      var path = settings?.assetsPath;
-      // if (path?.isEmpty) {
-      _loadFromAssets();
-      // } else {
-      //   _loadFromPath(settings?.assetsPath);
-      // }
+      final settings = Settings.of(context)!;
+      if (settings.assetsPath!.isEmpty) {
+        _loadFromAssets();
+      } else {
+        _loadFromPath(settings.assetsPath);
+      }
     }
   }
 
