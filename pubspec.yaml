@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
   # zefyr:
   #   git:
   #     url: git@github.com:memspace/zefyr.git
@@ -35,6 +36,10 @@ dependencies:
   # quiver_hashcode: ^2.0.0
   # image_picker: ^0.8.0+1
 
+=======
+  provider: ^5.0.0
+  intl: ^0.17.0
+>>>>>>> 6108a1113374f9325dda4d95c638d481f944cb5c
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

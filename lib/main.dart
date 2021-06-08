@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import './widgets/editor/editor.dart';
 import 'package:cerebus_rex/widgets/menu.dart';
+import 'package:cerebus_rex/pages/tasks.dart';
+import 'package:cerebus_rex/model/menu.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,29 +24,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  GlobalKey<HtmlEditorState> keyEditor = GlobalKey();
-  int index = 0;
-
-  void changePage(int index) {
-    setState(() {
-      this.index = index;
-    });
-  }
-
+  
   Widget getPages(int index) {
     switch (index) {
       case 0:
-        return Text("所有任务");
+        return TasksPage();
       case 1:
         return Column(
           children: <Widget>[
@@ -68,18 +57,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Row(
-          children: [
-            SideBarMenu(changePage),
-            Center(
-              child: getPages(index),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<MenuModel>(create: (_) => MenuModel()),
+      ],
+      builder: (context, child) {
+        return Scaffold(
+          body: Center(
+            child: Row(
+              children: [
+                SideBarMenu(),
+                Center(
+                  child: getPages(Provider.of<MenuModel>(context).selectIndex),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
