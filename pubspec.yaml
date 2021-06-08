@@ -23,23 +23,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-<<<<<<< HEAD
-  # zefyr:
-  #   git:
-  #     url: git@github.com:memspace/zefyr.git
-  #     path: packages/zefyr 
-  # collection: ^1.14.6
-  # url_launcher: ^5.0.0
-  # quill_delta: ^1.0.0
-  # notus: ^0.1.0
-  # meta: ^1.1.0
-  # quiver_hashcode: ^2.0.0
-  # image_picker: ^0.8.0+1
-
-=======
+  zefyrka: ^1.0.3+2
+  quill_format: ^1.0.0
+  url_launcher: ^6.0.6
+  google_fonts: ^2.1.0
+  file: ^6.1.1
+  adaptive_breakpoints: ^0.0.4
   provider: ^5.0.0
   intl: ^0.17.0
->>>>>>> 6108a1113374f9325dda4d95c638d481f944cb5c
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -47,15 +38,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  # quill_delta: ^1.0.0
-  zefyrka: ^1.0.3+2
-  quill_format: ^1.0.0
-  url_launcher: ^6.0.6
-  google_fonts: ^2.1.0
-  file: ^6.1.1
-  adaptive_breakpoints: ^0.0.4
-  #  pedantic: ^1.0.0
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

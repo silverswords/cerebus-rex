@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import 'package:cerebus_rex/config/theme.dart';
 import 'package:cerebus_rex/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
-=======
 import 'package:cerebus_rex/model/menu.dart';
-import 'package:flutter/material.dart';
-import 'package:cerebus_rex/config/theme.dart';
-import 'package:cerebus_rex/widgets/menu_item.dart';
 import 'package:provider/provider.dart';
->>>>>>> 6108a1113374f9325dda4d95c638d481f944cb5c
 
 class SideBarMenu extends StatefulWidget {
   // final Function changePages;
