@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:cerebus_rex/config/theme.dart';
 import 'package:cerebus_rex/widgets/menu_item.dart';
-
+import 'package:flutter/material.dart';
 
 class SideBarMenu extends StatefulWidget {
   final Function changePages;
@@ -175,6 +174,6 @@ class Menu {
 
 List<Menu> menuItems = [
   Menu('所有任务', Icons.dashboard),
-  Menu('注册任务', Icons.web),
+  Menu('创建任务', Icons.web),
   Menu('发布任务', Icons.insert_chart),
 ];
