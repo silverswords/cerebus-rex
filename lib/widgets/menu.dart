@@ -1,11 +1,12 @@
+import 'package:cerebus_rex/model/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:cerebus_rex/config/theme.dart';
 import 'package:cerebus_rex/widgets/menu_item.dart';
-
+import 'package:provider/provider.dart';
 
 class SideBarMenu extends StatefulWidget {
-  final Function changePages;
-  SideBarMenu(this.changePages);
+  // final Function changePages;
+  SideBarMenu();
 
   @override
   _SideBarMenuState createState() => _SideBarMenuState();
@@ -15,8 +16,7 @@ class _SideBarMenuState extends State<SideBarMenu>
     with SingleTickerProviderStateMixin {
   double maxWidth = 250;
   double minWidgth = 70;
-  bool collapsed = false;
-  int selectedIndex = 0;
+  
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -32,6 +32,8 @@ class _SideBarMenuState extends State<SideBarMenu>
 
   @override
   Widget build(BuildContext context) {
+    int selectedIndex = context.watch<MenuModel>().selectIndex;
+    bool collapsed = context.watch<MenuModel>().collapsed;
     return AnimatedBuilder(
       animation: _animation,
       builder: (BuildContext context, Widget? child) {
@@ -129,8 +131,7 @@ class _SideBarMenuState extends State<SideBarMenu>
                       () {
                         setState(
                           () {
-                            selectedIndex = index;
-                            widget.changePages(index);
+                            context.read<MenuModel>().select(index);
                           },
                         );
                       },
@@ -142,7 +143,7 @@ class _SideBarMenuState extends State<SideBarMenu>
               InkWell(
                 onTap: () {
                   setState(() {
-                    collapsed = !collapsed;
+                    context.read<MenuModel>().changeCollapsed();
                     collapsed
                         ? _animationController.reverse()
                         : _animationController.forward();
