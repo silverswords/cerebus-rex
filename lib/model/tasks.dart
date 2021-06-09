@@ -25,28 +25,28 @@ class Task {
 List<Task> taskItems = [
   Task(
     name: 'Elite Admin',
-    type: '任务',
+    type: '爬虫',
     state: TaskState.Pending,
     publishTime: DateTime.parse("1989-01-01 00:00:00Z"),
     runningTime: DateTime.parse("1970-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Real Homes',
-    type: '任务',
+    type: '计算',
     state: TaskState.Finished,
     publishTime: DateTime.parse("2021-01-01 00:00:00Z"),
     runningTime: DateTime.parse("1970-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Flutter Web',
-    type: '任务',
+    type: '定时任务',
     state: TaskState.Finished,
     publishTime: DateTime.parse("5412-01-01 00:00:00Z"),
     runningTime: DateTime.parse("1970-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Elite Admin',
-    type: '任务',
+    type: '一次性任务',
     state: TaskState.Running,
     publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
     runningTime: DateTime.parse("2008-01-01 00:00:00Z"),

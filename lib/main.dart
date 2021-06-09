@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './widgets/editor/editor.dart';
 import './widgets/editor/layout_expanded.dart';
 import './widgets/editor/settings.dart';
 import 'package:cerebus_rex/widgets/menu.dart';

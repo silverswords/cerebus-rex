@@ -4,7 +4,8 @@ import 'package:cerebus_rex/config/theme.dart';
 import 'package:cerebus_rex/pages/taskDetail.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:cerebus_rex/pages/script.dart';
+import 'package:cerebus_rex/pages/scriptDetail.dart';
+
 class ListWidget extends StatelessWidget {
   const ListWidget(
     this.items, {
@@ -106,7 +107,8 @@ class ListWidget extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => TaskDetailPage(items[index]),
+                                        builder: (context) =>
+                                            ScriptDetailPage(),
                                         // settings:
                                         //     RouteSettings(name: TaskDetailPage.name),
                                       ),
@@ -125,47 +127,40 @@ class ListWidget extends StatelessWidget {
                                   child: Text(items[index].type),
                                 ),
                                 Container(
-                                  width: _width / 5,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                        child: Text(
-                                          items[index].state.index == 0
-                                              ? 'Pending'
-                                              : items[index].state.index == 1
-                                                  ? 'Running'
-                                                  : items[index].state.index ==
-                                                          2
-                                                      ? 'Finished'
-                                                      : 'Error',
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                            color: Colors.white,
+                                    width: _width / 5,
+                                    child: Row(
+                                      children: [
+                                        Chip(
+                                          label: Text(
+                                            items[index].state.index == 0
+                                                ? 'Pending'
+                                                : items[index].state.index == 1
+                                                    ? 'Running'
+                                                    : items[index]
+                                                                .state
+                                                                .index ==
+                                                            2
+                                                        ? 'Finished'
+                                                        : 'Error',
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                        height: 30,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: items[index].state.index == 0
+                                          backgroundColor: items[index]
+                                                      .state
+                                                      .index ==
+                                                  0
                                               ? Colors.blue
                                               : items[index].state.index == 1
-                                                  ? Colors.yellow
+                                                  ? Colors.yellow[700]
                                                   : items[index].state.index ==
                                                           2
                                                       ? Colors.green
                                                       : Colors.red,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Container(),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                      ],
+                                    )),
                                 Container(
                                   width: _width / 5,
                                   child: Text(DateFormat('kk:mm:ss d MMM yyyy')
