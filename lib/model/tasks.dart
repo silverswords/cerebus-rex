@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 enum TaskState {
   Pending,
   Running,
@@ -46,6 +44,72 @@ List<Task> taskItems = [
     type: '任务',
     state: TaskState.Running,
     position: 'Frontend Eng',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
+  ),
+  Task(
+    name: 'Helping Hands',
+    type: '任务',
+    state: TaskState.Error,
+    position: 'Content Writer',
   ),
   Task(
     name: 'Helping Hands',
