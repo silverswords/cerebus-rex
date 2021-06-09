@@ -4,7 +4,7 @@ import 'package:cerebus_rex/config/theme.dart';
 import 'package:cerebus_rex/pages/taskDetail.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-
+import 'package:cerebus_rex/pages/script.dart';
 class ListWidget extends StatelessWidget {
   const ListWidget(
     this.items, {
