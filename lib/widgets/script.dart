@@ -20,7 +20,8 @@ class scriptListState extends State<scriptList> {
     name: '',
     type: '',
     state: TaskState.Pending,
-    position: '',
+    publishTime: DateTime.now(),
+    runningTime: DateTime.now(),
   );
 
   List<dynamic> items = [];

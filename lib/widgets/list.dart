@@ -1,11 +1,10 @@
-import 'dart:io';
-
 import 'package:cerebus_rex/model/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:cerebus_rex/config/theme.dart';
-import 'package:cerebus_rex/model/tasks.dart';
+import 'package:cerebus_rex/pages/taskDetail.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:cerebus_rex/pages/scriptDetail.dart';
 
 class ListWidget extends StatelessWidget {
   const ListWidget(
@@ -19,9 +18,9 @@ class ListWidget extends StatelessWidget {
     final _media = MediaQuery.of(context).size;
     double _width = _media.width - 300;
     bool _collapsed = context.watch<MenuModel>().collapsed;
-    // if (_collapsed) {
-    //   _width = _media.width - 200;
-    // }
+    if (_collapsed) {
+      _width = _media.width - 120;
+    }
     return Material(
       elevation: 10,
       shadowColor: Colors.grey,
@@ -103,11 +102,24 @@ class ListWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               textBaseline: TextBaseline.alphabetic,
                               children: <Widget>[
-                                Container(
-                                  width: _width / 5,
-                                  child: Text(
-                                    items[index].name,
-                                    textAlign: TextAlign.justify,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ScriptDetailPage(),
+                                        // settings:
+                                        //     RouteSettings(name: TaskDetailPage.name),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    width: _width / 5,
+                                    child: Text(
+                                      items[index].name,
+                                      textAlign: TextAlign.justify,
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -115,55 +127,48 @@ class ListWidget extends StatelessWidget {
                                   child: Text(items[index].type),
                                 ),
                                 Container(
-                                  width: _width / 5,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                        child: Text(
-                                          items[index].state.index == 0
-                                              ? 'Pending'
-                                              : items[index].state.index == 1
-                                                  ? 'Running'
-                                                  : items[index].state.index ==
-                                                          2
-                                                      ? 'Finished'
-                                                      : 'Error',
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                            color: Colors.white,
+                                    width: _width / 5,
+                                    child: Row(
+                                      children: [
+                                        Chip(
+                                          label: Text(
+                                            items[index].state.index == 0
+                                                ? 'Pending'
+                                                : items[index].state.index == 1
+                                                    ? 'Running'
+                                                    : items[index]
+                                                                .state
+                                                                .index ==
+                                                            2
+                                                        ? 'Finished'
+                                                        : 'Error',
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                        height: 30,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: items[index].state.index == 0
+                                          backgroundColor: items[index]
+                                                      .state
+                                                      .index ==
+                                                  0
                                               ? Colors.blue
                                               : items[index].state.index == 1
-                                                  ? Colors.yellow
+                                                  ? Colors.yellow[700]
                                                   : items[index].state.index ==
                                                           2
                                                       ? Colors.green
                                                       : Colors.red,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Container(),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                      ],
+                                    )),
                                 Container(
                                   width: _width / 5,
-                                  child: Text(DateFormat('kk:mm:ss EEE d MMM')
+                                  child: Text(DateFormat('kk:mm:ss d MMM yyyy')
                                       .format(items[index].publishTime)),
                                 ),
                                 Container(
                                   width: _width / 5,
-                                  child: Text(DateFormat('kk:mm:ss EEE d MMM')
+                                  child: Text(DateFormat('kk:mm:ss d MMM yyyy')
                                       .format(items[index].runningTime)),
                                 ),
                               ],

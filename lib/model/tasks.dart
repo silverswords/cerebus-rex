@@ -9,112 +9,100 @@ class Task {
   String name = "";
   String type = "";
   TaskState state = TaskState.Pending;
-  String position = "";
   DateTime publishTime = DateTime.parse("1970-01-01 00:00:00Z");
   DateTime runningTime = DateTime.parse("1970-01-01 00:00:00Z");
   Task({
     required this.name,
     required this.type,
     required this.state,
-    required this.position,
+    required this.publishTime,
+    required this.runningTime,
   });
 }
 
 List<Task> taskItems = [
   Task(
     name: 'Elite Admin',
-    type: '任务',
+    type: '爬虫',
     state: TaskState.Pending,
-    position: 'Web Designer',
+    publishTime: DateTime.parse("1989-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("1970-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Real Homes',
-    type: '任务',
+    type: '计算',
     state: TaskState.Finished,
-    position: 'Project Manager',
+    publishTime: DateTime.parse("2021-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("1970-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Flutter Web',
-    type: '任务',
+    type: '定时任务',
     state: TaskState.Finished,
-    position: 'Developer',
+    publishTime: DateTime.parse("5412-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("1970-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Elite Admin',
-    type: '任务',
+    type: '一次性任务',
     state: TaskState.Running,
-    position: 'Frontend Eng',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2008-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
   Task(
     name: 'Helping Hands',
     type: '任务',
     state: TaskState.Error,
-    position: 'Content Writer',
-  ),
-  Task(
-    name: 'Helping Hands',
-    type: '任务',
-    state: TaskState.Error,
-    position: 'Content Writer',
-  ),
-  Task(
-    name: 'Helping Hands',
-    type: '任务',
-    state: TaskState.Error,
-    position: 'Content Writer',
-  ),
-  Task(
-    name: 'Helping Hands',
-    type: '任务',
-    state: TaskState.Error,
-    position: 'Content Writer',
-  ),
-  Task(
-    name: 'Helping Hands',
-    type: '任务',
-    state: TaskState.Error,
-    position: 'Content Writer',
+    publishTime: DateTime.parse("1970-01-01 00:00:00Z"),
+    runningTime: DateTime.parse("2016-01-01 00:00:00Z"),
   ),
 ];
