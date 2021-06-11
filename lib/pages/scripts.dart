@@ -1,6 +1,9 @@
 import 'package:cerebus_rex/model/tasks.dart';
+import 'package:cerebus_rex/model/scripts.dart';
 import 'package:cerebus_rex/widgets/script.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:cerebus_rex/widgets/editor/editor.dart';
 
 class Counter with ChangeNotifier {
   int _count;
@@ -17,8 +20,14 @@ class Counter with ChangeNotifier {
 class ScriptsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: scriptList(taskItems),
-    );
+    return ChangeNotifierProvider(
+        create: (_) => ScriptsModel(),
+        child: Container(
+          child: ScriptList((BuildContext context, dynamic data) {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Editor();
+            }));
+          }),
+        ));
   }
 }

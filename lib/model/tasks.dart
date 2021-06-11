@@ -44,7 +44,6 @@ class TasksModel with ChangeNotifier {
 
     List<Task> result = List.empty(growable: true);
     for (var item in list) {
-      print(item);
       result.add(Task.fromJson(item));
     }
 

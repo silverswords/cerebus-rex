@@ -1,43 +1,31 @@
+import 'package:cerebus_rex/model/scripts.dart';
 import 'package:cerebus_rex/model/tasks.dart';
 import 'package:cerebus_rex/widgets/card.dart';
 import 'package:cerebus_rex/widgets/editor/editor.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class scriptList extends StatefulWidget {
-  scriptList(
-    this.items, {
+class ScriptList extends StatefulWidget {
+  ScriptList(this.onClickCard, {
     Key? key,
   });
-
-  final List<dynamic> items;
+  final Function(BuildContext context, dynamic data) onClickCard;
   @override
-  scriptListState createState() => new scriptListState();
+  ScriptListState createState() => new ScriptListState();
 }
 
-class scriptListState extends State<scriptList> {
-  String scriptName = '';
-  Task task = new Task(
-    name: '',
-    type: '',
-    state: TaskState.Pending,
-    publishTime: DateTime.now(),
-    startTime: DateTime.now(),
-  );
-
-  List<dynamic> items = [];
+class ScriptListState extends State<ScriptList> {
+  String scriptName = "";
+  String scriptType = "";
 
   void initState() {
     super.initState();
-    items = widget.items;
-  }
-
-  void _onClickCard(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return Editor();
-    }));
+    final scriptsModel = Provider.of<ScriptsModel>(context, listen: false);
+    scriptsModel.getScripts();
   }
 
   void _addScriptModal(BuildContext context) {
+    final scriptsModel = context.read<ScriptsModel>();
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -53,7 +41,7 @@ class scriptListState extends State<scriptList> {
                   labelText: '脚本名称',
                 ),
                 onChanged: (value) {
-                  task.name = value;
+                  scriptName = value;
                 },
               ),
               SizedBox(height: 10),
@@ -64,7 +52,7 @@ class scriptListState extends State<scriptList> {
                   labelText: '脚本类型',
                 ),
                 onChanged: (value) {
-                  task.type = value;
+                  scriptType = value;
                 },
               ),
             ],
@@ -79,9 +67,7 @@ class scriptListState extends State<scriptList> {
             ElevatedButton(
               child: Text('提交'),
               onPressed: () {
-                setState(() {
-                  items.add(task);
-                });
+                scriptsModel.addScript(scriptName, scriptType);
 
                 Navigator.of(context).pop();
               },
@@ -96,7 +82,7 @@ class scriptListState extends State<scriptList> {
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
     double _width = _media.width - 250;
-
+    var items = context.watch<ScriptsModel>().scripts;
     return Container(
       width: _width,
       decoration: BoxDecoration(
@@ -113,7 +99,7 @@ class scriptListState extends State<scriptList> {
                   child: Container(
                     // margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
                     child: Text(
-                      '脚本数量:${widget.items.length}',
+                      '脚本数量:${items.length}',
                       style: TextStyle(
                         fontSize: 18,
                         color: Color(0xff272D34),
@@ -147,14 +133,14 @@ class scriptListState extends State<scriptList> {
                     childAspectRatio: 1.618,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10),
-                itemCount: widget.items.length,
+                itemCount: items.length,
                 itemBuilder: (context, index) {
                   return CustomCard(
                     onClick: () {
-                      _onClickCard(context);
+                      widget.onClickCard(context, items[index]);
                     },
-                    title: widget.items[index].name,
-                    subTitle: widget.items[index].type,
+                    title: items[index].name,
+                    subTitle: items[index].type,
                   );
                 },
               ),
