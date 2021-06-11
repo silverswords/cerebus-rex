@@ -6,7 +6,7 @@ import 'package:cerebus_rex/widgets/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:cerebus_rex/pages/publish.dart';
 void main() {
   runApp(MyApp());
 }
@@ -37,6 +37,8 @@ class MyHomePage extends StatelessWidget {
         return TasksPage();
       case 1:
         return ScriptsPage();
+         case 2:
+        return PublishPage();
       default:
         return Text('404');
     }
