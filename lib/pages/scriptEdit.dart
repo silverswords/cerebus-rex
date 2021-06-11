@@ -8,13 +8,21 @@ class ScriptsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (_) => ScriptsModel(),
-        child: Container(
-          child: ScriptList((BuildContext context, dynamic data) {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Editor();
-            }));
-          }),
-        ));
+      create: (_) => ScriptsModel(),
+      child: Container(
+        child: ScriptList(
+          (BuildContext context, dynamic data) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Editor();
+                },
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 }
