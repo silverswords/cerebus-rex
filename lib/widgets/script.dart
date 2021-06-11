@@ -1,6 +1,6 @@
 import 'package:cerebus_rex/model/tasks.dart';
+import 'package:cerebus_rex/pages/editScript.dart';
 import 'package:cerebus_rex/widgets/card.dart';
-import 'package:cerebus_rex/widgets/editor/editor.dart';
 import 'package:flutter/material.dart';
 
 class scriptList extends StatefulWidget {
@@ -33,7 +33,7 @@ class scriptListState extends State<scriptList> {
 
   void _onClickCard(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return Editor();
+      return HtmlEditorExampleApp();
     }));
   }
 
