@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:html_editor_enhanced/utils/options.dart';
 
-class HtmlEditorExampleApp extends StatelessWidget {
+class Editor extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
