@@ -7,7 +7,7 @@ enum ParamType {
   JSON,
 }
 
-String ParamType2String(ParamType type) {
+String paramType2String(ParamType type) {
   switch (type) {
     case ParamType.String:
       return "String";

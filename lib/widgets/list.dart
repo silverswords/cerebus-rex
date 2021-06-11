@@ -169,7 +169,7 @@ class ListWidget extends StatelessWidget {
                                 Container(
                                   width: _width / 5,
                                   child: Text(DateFormat('kk:mm:ss d MMM yyyy')
-                                      .format(items[index].runningTime)),
+                                      .format(items[index].startTime)),
                                 ),
                               ],
                             ),

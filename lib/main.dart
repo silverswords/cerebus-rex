@@ -1,4 +1,5 @@
 import 'package:cerebus_rex/model/menu.dart';
+import 'package:cerebus_rex/model/tasks.dart';
 import 'package:cerebus_rex/pages/scripts.dart';
 import 'package:cerebus_rex/pages/tasks.dart';
 import 'package:cerebus_rex/widgets/menu.dart';
@@ -36,7 +37,7 @@ class MyHomePage extends StatelessWidget {
       case 1:
         return ScriptsPage();
       default:
-        return Text('h');
+        return Text('404');
     }
   }
 
@@ -45,6 +46,7 @@ class MyHomePage extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MenuModel>(create: (_) => MenuModel()),
+        ChangeNotifierProvider<TasksModel>(create: (_) => TasksModel()),
       ],
       builder: (context, child) {
         return Container(
