@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class Script {
   String name = "";
@@ -29,7 +29,7 @@ class ScriptsModel with ChangeNotifier {
 
   List<Script> get scripts => _scripts;
   getScripts() async {
-    var response = await Dio().get("https://dovics.cn.utools.club/script");
+    var response = await Dio().get("http://sakura.cn.utools.club/script");
     var list = response.data['script'];
 
     List<Script> result = List.empty(growable: true);
@@ -43,7 +43,7 @@ class ScriptsModel with ChangeNotifier {
 
   addScript(String name, String type) async {
     var script = "console.log(456)";
-    var response = await Dio().post("https://dovics.cn.utools.club/add",
+    var response = await Dio().post("http://sakura.cn.utools.club/add",
         data: jsonEncode({
           "name": name,
           "type": type,
@@ -54,8 +54,6 @@ class ScriptsModel with ChangeNotifier {
         Script(createTime: DateTime.now(), name: name, type: type, script: ""),
       );
       notifyListeners();
-    } else {
-      
-    }
+    } else {}
   }
 }

@@ -9,12 +9,7 @@ class Editor extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      darkTheme: ThemeData.dark(),
-      home: HtmlEditorExample(title: 'Script Editor'),
-    );
+    return HtmlEditorExample(title: 'Script Editor');
   }
 }
 
@@ -45,6 +40,17 @@ class _HtmlEditorExampleState extends State<HtmlEditorExample> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          backgroundColor: Colors.white,
+          shadowColor: Colors.white,
+          leading: IconButton(
+              icon: new Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+              // tooltip: 'Add Alarm',
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
         body: SingleChildScrollView(
           child: Column(

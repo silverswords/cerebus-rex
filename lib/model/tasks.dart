@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 enum TaskState {
   Pending,
@@ -24,12 +24,11 @@ class Task {
 
   factory Task.fromJson(Map<String, dynamic> json) {
     return Task(
-      name: json['name'],
-      type: json['script_type'],
-      state: TaskState.Pending,
-      publishTime: DateTime.parse(json['create_time']),
-      startTime: DateTime.parse(json['start_time'])
-    );
+        name: json['name'],
+        type: json['script_type'],
+        state: TaskState.Pending,
+        publishTime: DateTime.parse(json['create_time']),
+        startTime: DateTime.parse(json['start_time']));
   }
 }
 
@@ -39,7 +38,7 @@ class TasksModel with ChangeNotifier {
   List<Task> get tasks => _tasks;
 
   getTasks() async {
-    var response = await Dio().get("https://dovics.cn.utools.club/tasks");
+    var response = await Dio().get("http://sakura.cn.utools.club/tasks");
     var list = response.data['tasks'];
 
     List<Task> result = List.empty(growable: true);
