@@ -14,7 +14,7 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
-    final picture_height = _media.height - 100;
+    final card_height = (_media.width - 34) / 3 / 1.618;
 
     return GestureDetector(
       onTap: () {
@@ -28,11 +28,10 @@ class CustomCard extends StatelessWidget {
         ),
         clipBehavior: Clip.antiAlias,
         // semanticContainer: false,
-        child: Column(
+        child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 50),
-              height: 100,
+              // height: card_height - 140,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('card.png'),
@@ -40,12 +39,29 @@ class CustomCard extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-              child: Text(title == null ? '' : title!),
-            ),
-            Container(
-              child: Text(subTitle == null ? '' : subTitle!),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        child: Text(title == null ? '' : title!,
+                            style: TextStyle(fontSize: 24)))
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        subTitle == null ? '' : subTitle!,
+                        style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
           ],
         ),
