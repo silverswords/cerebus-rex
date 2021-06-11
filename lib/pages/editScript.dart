@@ -1,22 +1,32 @@
+import 'dart:convert';
+
+import 'package:cerebus_rex/model/scripts.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:html/parser.dart' show parse;
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:html_editor_enhanced/utils/options.dart';
 
 class Editor extends StatelessWidget {
+  Editor({Key? key, required Script this.data}) : super(key: key);
+
+  Script data;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return HtmlEditorExample(title: 'Script Editor');
+    return HtmlEditorExample(title: 'Script Editor', data: data);
   }
 }
 
 class HtmlEditorExample extends StatefulWidget {
-  HtmlEditorExample({Key? key, required this.title}) : super(key: key);
+  HtmlEditorExample({Key? key, required this.title, required this.data})
+      : super(key: key);
 
   final String title;
+  final Script data;
 
   @override
   _HtmlEditorExampleState createState() => _HtmlEditorExampleState();
@@ -97,8 +107,7 @@ class _HtmlEditorExampleState extends State<HtmlEditorExample> {
                       onPressed: () {
                         controller.clear();
                       },
-                      child:
-                          Text('Reset', style: TextStyle(color: Colors.white)),
+                      child: Text('重置', style: TextStyle(color: Colors.white)),
                     ),
                     SizedBox(
                       width: 16,
@@ -112,20 +121,27 @@ class _HtmlEditorExampleState extends State<HtmlEditorExample> {
                           txt =
                               '<text removed due to base-64 data, displaying the text could cause the app to crash>';
                         }
+
+                        var doc = parse(txt);
+                        var script_content = doc.body.text;
+
+                        updateScript(script_content, widget.data.id);
+
                         Fluttertoast.showToast(
-                            msg: txt,
+                            msg: script_content,
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
                             backgroundColor: Colors.red,
                             textColor: Colors.white,
                             fontSize: 16.0);
+
                         this.setState(() {
-                          result = txt;
+                          result = script_content;
                         });
                       },
                       child: Text(
-                        'Submit',
+                        '提交',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -138,4 +154,12 @@ class _HtmlEditorExampleState extends State<HtmlEditorExample> {
       ),
     );
   }
+}
+
+updateScript(String content, int script_id) async {
+  var response = await Dio().post("http://sakura.cn.utools.club/script/update",
+      data: jsonEncode({
+        "id": script_id,
+        "script": content,
+      }));
 }

@@ -8,7 +8,7 @@ class ScriptList extends StatefulWidget {
     this.onClickCard, {
     Key? key,
   });
-  final Function(BuildContext context, dynamic data) onClickCard;
+  final Function(BuildContext context, Script data) onClickCard;
   @override
   ScriptListState createState() => new ScriptListState();
 }

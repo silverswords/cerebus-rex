@@ -22,9 +22,9 @@ class ScriptsPage extends StatelessWidget {
     return ChangeNotifierProvider(
         create: (_) => ScriptsModel(),
         child: Container(
-          child: ScriptList((BuildContext context, dynamic data) {
+          child: ScriptList((BuildContext context, Script data) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Editor();
+              return Editor(data: data);
             }));
           }),
         ));

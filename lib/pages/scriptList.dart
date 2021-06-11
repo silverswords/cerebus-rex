@@ -1,5 +1,4 @@
 import 'package:cerebus_rex/model/scripts.dart';
-import 'package:cerebus_rex/pages/editScript.dart';
 import 'package:cerebus_rex/widgets/card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +8,7 @@ class ScriptList extends StatefulWidget {
     this.onClickCard, {
     Key? key,
   });
-  final Function(BuildContext context, dynamic data) onClickCard;
+  final Function(BuildContext context, Script data) onClickCard;
   @override
   ScriptListState createState() => new ScriptListState();
 }
@@ -138,10 +137,6 @@ class ScriptListState extends State<ScriptList> {
                   return CustomCard(
                     onClick: () {
                       widget.onClickCard(context, items[index]);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Editor();
-                      }));
                     },
                     title: items[index].name,
                     subTitle: items[index].type,
