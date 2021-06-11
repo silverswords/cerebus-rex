@@ -1,6 +1,8 @@
 import 'package:cerebus_rex/config/theme.dart';
 import 'package:cerebus_rex/model/menu.dart';
+import 'package:cerebus_rex/model/tasks.dart';
 import 'package:cerebus_rex/pages/scriptDetail.dart';
+import 'package:cerebus_rex/pages/taskDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -52,35 +54,42 @@ class ListWidget extends StatelessWidget {
                         children: <Widget>[
                           //SizedBox(width: 2),
                           Container(
-                            width: _width / 5,
+                            width: _width / 6,
                             child: Text(
                               '任务名称',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
                           Container(
-                            width: _width / 5,
+                            width: _width / 6,
                             child: Text(
                               '任务类型',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
                           Container(
-                            width: _width / 5,
+                            width: _width / 6,
                             child: Text(
                               '任务状态',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
                           Container(
-                            width: _width / 5,
+                            width: _width / 6,
                             child: Text(
                               '开始时间',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
                           Container(
-                            width: _width / 5,
+                            width: _width / 6,
+                            child: Text(
+                              '完成时间',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                          Container(
+                            width: _width / 6,
                             child: Text(
                               '发布时间',
                               style: TextStyle(color: Colors.grey),
@@ -106,15 +115,19 @@ class ListWidget extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            ScriptDetailPage(),
-                                        // settings:
-                                        //     RouteSettings(name: TaskDetailPage.name),
-                                      ),
+                                          builder: (context) =>
+                                              ChangeNotifierProvider(
+                                                create: (_) => TasksModel(),
+                                                child: TaskDetailPage(
+                                                    items[index]),
+                                              )
+                                          // settings:
+                                          //     RouteSettings(name: TaskDetailPage.name),
+                                          ),
                                     );
                                   },
                                   child: Container(
-                                    width: _width / 5,
+                                    width: _width / 6,
                                     child: Text(
                                       items[index].name,
                                       textAlign: TextAlign.justify,
@@ -122,11 +135,11 @@ class ListWidget extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  width: _width / 5,
+                                  width: _width / 6,
                                   child: Text(items[index].type),
                                 ),
                                 Container(
-                                    width: _width / 5,
+                                    width: _width / 6,
                                     child: Row(
                                       children: [
                                         Chip(
@@ -161,14 +174,19 @@ class ListWidget extends StatelessWidget {
                                       ],
                                     )),
                                 Container(
-                                  width: _width / 5,
+                                  width: _width / 6,
                                   child: Text(DateFormat('kk:mm:ss d MMM yyyy')
                                       .format(items[index].publishTime)),
                                 ),
                                 Container(
-                                  width: _width / 5,
+                                  width: _width / 6,
                                   child: Text(DateFormat('kk:mm:ss d MMM yyyy')
                                       .format(items[index].startTime)),
+                                ),
+                                Container(
+                                  width: _width / 6,
+                                  child: Text(DateFormat('kk:mm:ss d MMM yyyy')
+                                      .format(items[index].finishedTime)),
                                 ),
                               ],
                             ),

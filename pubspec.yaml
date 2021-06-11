@@ -25,7 +25,6 @@ dependencies:
     sdk: flutter
   html_editor_enhanced: ^2.1.1
   images_picker: ^1.2.4
-  google_fonts: ^2.1.0
   file: ^6.1.1
   adaptive_breakpoints: ^0.0.4
   provider: ^5.0.0
@@ -37,6 +36,8 @@ dependencies:
   flutter_picker: ^2.0.1
   flutter_html_rich_text: ^1.0.0
   
+  minio: ^2.0.0-pre
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
