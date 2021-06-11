@@ -1,10 +1,9 @@
-import 'package:cerebus_rex/model/menu.dart';
-import 'package:flutter/material.dart';
 import 'package:cerebus_rex/config/theme.dart';
-import 'package:cerebus_rex/pages/taskDetail.dart';
+import 'package:cerebus_rex/model/menu.dart';
+import 'package:cerebus_rex/pages/scriptDetail.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:cerebus_rex/pages/scriptDetail.dart';
 
 class ListWidget extends StatelessWidget {
   const ListWidget(
