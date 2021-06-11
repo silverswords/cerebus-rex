@@ -3,6 +3,7 @@ import 'package:cerebus_rex/model/tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_picker/Picker.dart';
 
 class ScriptDetailPage extends StatelessWidget {
   ScriptDetailPage({Key? key});

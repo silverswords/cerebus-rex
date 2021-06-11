@@ -20,28 +20,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
-List<String> getAllScript() {
-  var list = ['a', 'b', 'c', 'd'];
-  return list;
-}
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  int count = 0;
-  // List<Scripts> scripts = [];
-  List<String> scripts = [];
-  final String title;
-
-  void initState() {
-    scripts = getAllScript();
-    count = scripts.length ~/ 4 + scripts.length % 4 == 0 ? 0 : 1;
-  }
+  MyHomePage({Key? key}) : super(key: key);
 
   Widget getPages(int index) {
     switch (index) {
