@@ -2,6 +2,7 @@ import 'package:cerebus_rex/model/scripts.dart';
 import 'package:cerebus_rex/widgets/card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:cerebus_rex/config/theme.dart';
 
 class ScriptList extends StatefulWidget {
   ScriptList(
@@ -96,17 +97,19 @@ class ScriptListState extends State<ScriptList> {
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    // margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
                     child: Text(
                       '脚本数量:${items.length}',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Color(0xff272D34),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                   ),
                 ),
                 Container(
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith(
@@ -114,9 +117,18 @@ class ScriptListState extends State<ScriptList> {
                     onPressed: () {
                       _addScriptModal(context);
                     },
-                    child: Text(
-                      '新增脚本',
-                      style: TextStyle(backgroundColor: Color(0xff272D34)),
+                    child: Container(
+                      height: 40,
+                      width: 100,
+                      child: Center(
+                        child: Text(
+                          '新增脚本',
+                          style: TextStyle(
+                            fontSize: 16,
+                            backgroundColor: Color(0xff272D34),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

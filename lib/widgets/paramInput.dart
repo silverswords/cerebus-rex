@@ -1,8 +1,8 @@
 import 'package:cerebus_rex/model/paramInput.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_picker/Picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_picker/Picker.dart';
 
 class ParamFrom extends StatelessWidget {
   ParamFrom({Key? key});
@@ -13,38 +13,40 @@ class ParamFrom extends StatelessWidget {
   List<Widget> _buildList(BuildContext context) {
     Map<String, String> params = context.watch<ParamInput>().params;
     List<Widget> result = List.empty(growable: true);
-    params.forEach((key, value) {
-      result.add(
-        Card(
-          child: Container(
-            width: 540,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 50,
-                  width: 200,
-                  child: Center(
-                    child: Text(key),
+    params.forEach(
+      (key, value) {
+        result.add(
+          Card(
+            child: Container(
+              width: 540,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 200,
+                    child: Center(
+                      child: Text(key),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                  //child: Text("="),
-                ),
-                Container(
-                  height: 50,
-                  width: 200,
-                  child: Center(
-                    child: Text(value),
+                  SizedBox(
+                    width: 20,
+                    //child: Text("="),
                   ),
-                )
-              ],
+                  Container(
+                    height: 50,
+                    width: 200,
+                    child: Center(
+                      child: Text(value),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     return result;
   }

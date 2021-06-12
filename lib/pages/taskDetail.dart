@@ -56,24 +56,22 @@ class _TaskDetailState extends State<TaskDetailPage> {
                       child: Card(
                         margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
                         child: Container(
-                            height: _media.height / 5,
+                            height: 250,
                             child: Column(
                               children: [
-                                SizedBox(height: 25),
+                                SizedBox(height: 20),
                                 Row(
                                   children: [
                                     SizedBox(width: 20),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           "任务名称",
@@ -86,14 +84,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           widget.task.name,
@@ -106,15 +102,13 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                           child: Text(
                                         "任务类型",
@@ -126,14 +120,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           widget.task.type,
@@ -146,15 +138,13 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                           child: Text(
                                         "脚本名称",
@@ -166,14 +156,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           widget.task.scriptName,
@@ -191,15 +179,13 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     SizedBox(width: 20),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                           child: Text(
                                         "任务状态",
@@ -211,14 +197,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Chip(
                                           label: Text(
@@ -249,15 +233,13 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                           child: Text(
                                         "创建时间",
@@ -269,14 +251,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) * 3 / 6,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           DateFormat('kk:mm:ss d MMM yyyy')
@@ -300,15 +280,13 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     SizedBox(width: 20),
                                     Container(
                                       width: (_media.width - 80) / 4,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                           child: Text(
                                         "开始时间",
@@ -320,14 +298,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 4,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           DateFormat('kk:mm:ss d MMM yyyy')
@@ -341,15 +317,13 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 4,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                           child: Text(
                                         "结束时间",
@@ -361,14 +335,12 @@ class _TaskDetailState extends State<TaskDetailPage> {
                                     ),
                                     Container(
                                       width: (_media.width - 80) / 4,
-                                      height: ((_media.height - 80) / 5- 50) / 3,
+                                      height: 70,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Color(0xFFF0F0F0),
                                             width: 0.5),
                                       ),
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 20, 10, 20),
                                       child: Center(
                                         child: Text(
                                           DateFormat('kk:mm:ss d MMM yyyy')
@@ -390,7 +362,7 @@ class _TaskDetailState extends State<TaskDetailPage> {
                 ),
                 Divider(),
                 Container(
-                  height: (_media.height - 150) / 5* 4,
+                  height: _media.height - 370,
                   child: Card(
                     margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
                     child: Container(
